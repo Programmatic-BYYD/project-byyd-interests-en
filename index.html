@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IAB Interests Manager</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+  </head>
+  <body>
+    <div id="toast-container"></div>
+
+    <div class="header">
+      <div class="header-content">
+        <div class="header-title">
+          IAB Application Categories and Interests (BYYD)
+        </div>
+        <div class="lang-switcher">
+          <a href="/" class="lang-btn active">EN</a>
+          <a href="/" class="lang-btn">RU</a>
+          <button class="lang-btn" disabled>ES</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout">
+      <div class="panel">
+        <div class="panel-header">
+          <h3>Интересы</h3>
+          <div class="actions-row">
+            <button onclick="toggleAllDetails(true)">Expand all</button>
+            <button onclick="toggleAllDetails(false)">Collapse all</button>
+          </div>
+        </div>
+
+        <div class="search-wrapper">
+          <input
+            id="search"
+            placeholder="Search by interests"
+            autocomplete="off"
+          />
+          <button id="clear-search">✕</button>
+        </div>
+
+        <div class="main-controls">
+          <button onclick="selectAll()">Select all</button>
+          <button onclick="clearInterests()">Remove everything</button>
+        </div>
+
+        <div id="categories" class="scroll-area"></div>
+      </div>
+
+      <div class="panel right-panel">
+        <h3>Selected: <span id="count">0</span></h3>
+        <div id="selected" class="selected-list scroll-area"></div>
+
+        <div class="footer-actions">
+          <button class="btn-copy" onclick="copyInterests()">Copy list</button>
+          <button onclick="clearInterests()">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
